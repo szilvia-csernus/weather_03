@@ -3,9 +3,7 @@ import React from 'react';
 const toQueryString = (obj) => {
     const parts = [];
     for (let i in obj) {
-        if (obj.hasOwnProperty(i)) {
-            parts.push(`${encodeURIComponent(i)}=${encodeURIComponent(obj[i])}`);
-        }
+        parts.push(`${encodeURIComponent(i)}=${encodeURIComponent(obj[i])}`);
     }
     return parts.join('&');
 }
@@ -64,7 +62,7 @@ class Weather extends React.Component {
             const tempMax = weather.main.temp_max;
             const humidity = weather.main.humidity;
             const description = weather.weather[0].main;
-            const icon = weather.weather[0].icon;
+            // const icon = weather.weather[0].icon;
 
             content = 
             <div>
