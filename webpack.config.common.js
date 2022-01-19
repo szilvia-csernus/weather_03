@@ -28,14 +28,31 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: "html-loader", // Minimizes and exports HTML as string. Imports tags and attributes (favicon!)
+                use: [
+                    "html-loader", // Minimizes and exports HTML as string. Imports tags and attributes (favicon!)
+                    
+                ] 
 
 
             },
+            // {
+            //     test: /\.(png|svg|jpe?g|gif)$/i,
+            //     type: "asset/resource",
+            // },
             {
-                test: /\.(png|svg|jpe?g|gif)$/i,
-                type: "asset/resource",
-            },
+                test: /\.svg$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'svg-react-loader',
+                    options: {
+                        tag: 'symbol',
+                        attrs: {
+                            title: 'example',
+                        },
+                        name: 'MyIcon',
+                    },
+                },
+            }
         
         ]
     },
