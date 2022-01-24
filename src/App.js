@@ -1,57 +1,47 @@
-import React from 'react';
-import Weather from './Weather';
-import refreshicon from './assets/refresh.svg';
+import React, { useState, useEffect } from 'react';
+import CurrentWeather from './CurrentWeather';
+import RefreshIcon from './assets/refresh.svg';
+import WeatherForecast from './WeatherForecast';
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            time: 15,
-            timeToRefresh: false
-        };
-        this.count = this.count.bind(this);
-        this.interval = 0;
-    }
+function App() {
+    const [time, setTime] = useState(5);
+    const [timeToRefresh, triggerTimeToRefresh] = useState(false);
 
-    count() {
-        if (this.state.time == 1) {
-            this.setState({ time: 15, timeToRefresh: true });
-        }
-        else if (this.state.time == 15) {
-            this.setState({ time: this.state.time - 1, timeToRefresh: false });
+    useEffect(() => {
+        const interval = window.setInterval(count, 60000);
+        // console.log("time useEffect triggered.");
+        return () => window.clearInterval(interval)
+    }, [time]);
+
+
+    const count = () => {
+        if (time <= 1) {
+            triggerTimeToRefresh(currentTimeToRefresh => !currentTimeToRefresh)
+            setTime(5);
         }
         else {
-            this.setState({ time: this.state.time - 1 });
+            setTime(newTime => newTime - 1);
         }
+    };
 
-    }
-
-    componentDidMount() {
-        this.interval = window.setInterval(this.count, 1000)
-    }
-
-    componentWillUnmount() {
-        window.clearInterval(this.interval)
-    }
-
-
-    render() {
-        const { time, timeToRefresh } = this.state;
-        return (
-            <div className="general-frame">
-                <Weather timeToRefresh={timeToRefresh} />
+    return (
+        <React.StrictMode>
+            <div className="general-frame general-frame--invisible">
+                <CurrentWeather timeToRefresh={timeToRefresh} />
                 <div className="refreshing">
                     <div className="sign">
-                        <img src={refreshicon} alt="refreshicon"/>
+                        <RefreshIcon />
                     </div>
-                    <div> in {time} second(s)</div>
+                    <div> in {time} minute(s)</div>
                 </div>
             </div>
-        )
-    }
-}
-
+            <div>
+                <WeatherForecast timeToRefresh={timeToRefresh} />
+            </div>
+        </React.StrictMode> 
+    );
+};
 
 export default App
 

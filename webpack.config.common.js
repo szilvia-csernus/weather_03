@@ -35,25 +35,12 @@ module.exports = {
 
 
             },
-            // {
-            //     test: /\.(png|svg|jpe?g|gif)$/i,
-            //     type: "asset/resource",
-            // },
             {
                 test: /\.svg$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'svg-react-loader',
-                    options: {
-                        tag: 'symbol',
-                        attrs: {
-                            title: 'example',
-                        },
-                        name: 'MyIcon',
-                    },
-                },
-            }
-        
+                use: [
+                    '@svgr/webpack'
+                ],
+            },
         ]
     },
     plugins: [
