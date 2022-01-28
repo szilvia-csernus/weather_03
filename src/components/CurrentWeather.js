@@ -3,7 +3,7 @@ import CityName from './CityName';
 import Temp from './Temp';
 import WeatherDescription from './WeatherDescription';
 import Icon from './Icon';
-import RefreshIcon from './assets/refresh.svg';
+import RefreshIcon from '../assets/refresh.svg';
 
 
 function CurrentWeather({ city, weather, time }) {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import CurrentWeather from './CurrentWeather';
 import WeatherForecast from './WeatherForecast';
-import { weatherUrl } from './apis/weatherUrl';
-import { cityUrl } from './apis/cityUrl';
-import { apiCall } from './apis/apiCall';
+import { weatherUrl } from '../apis/weatherUrl';
+import { cityUrl } from '../apis/cityUrl';
+import { apiCall } from '../apis/apiCall';
 
 
 function App() {
@@ -14,12 +14,10 @@ function App() {
 
     useEffect(() => {
         const interval = window.setInterval(count, 60000);
-        console.log("time useEffect triggered.");
         return () => window.clearInterval(interval)
     }, [time]);
 
     useEffect(() => {
-        console.log("timetoRefresh useEffect triggered ")
         navigator.geolocation.getCurrentPosition(loadWeather);
     }, [timeToRefresh]);
 
@@ -36,8 +34,7 @@ function App() {
     const loadWeather = (location) => {
         const wUrl = weatherUrl(location);
         const cUrl = cityUrl(location);
-        console.log(cUrl);
-        console.log(wUrl);
+        
         apiCall(wUrl, setWeather);
         apiCall(cUrl, setCity);
     }

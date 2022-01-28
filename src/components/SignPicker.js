@@ -1,15 +1,15 @@
 import React from 'react';
-import Sunny from './assets/sunny.svg';
-import FewClouds from './assets/fewclouds.svg';
-import ScatteredClouds from './assets/scatteredclouds.svg';
-import ThickClouds from './assets/thickclouds.svg';
-import ShowerRain from './assets/showerrain.svg';
-import Rain from './assets/rain.svg';
-import Thunderstorm from './assets/thunderstorm.svg';
-import Snow from './assets/snow.svg';
-import Fog from './assets/fog.svg';
-import Moon from './assets/moon.svg';
-import FewCloudsNight from './assets/fewcloudsnight.svg';
+import Sunny from '../assets/sunny.svg';
+import FewClouds from '../assets/fewclouds.svg';
+import ScatteredClouds from '../assets/scatteredclouds.svg';
+import ThickClouds from '../assets/thickclouds.svg';
+import ShowerRain from '../assets/showerrain.svg';
+import Rain from '../assets/rain.svg';
+import Thunderstorm from '../assets/thunderstorm.svg';
+import Snow from '../assets/snow.svg';
+import Fog from '../assets/fog.svg';
+import Moon from '../assets/moon.svg';
+import FewCloudsNight from '../assets/fewcloudsnight.svg';
 
 function SignPicker(sign) {
     const signs = {
