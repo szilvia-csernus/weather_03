@@ -29,20 +29,23 @@ module.exports = {
             {
                 test: /\.html$/,
                 use: [
-                    "html-loader", // Minimizes and exports HTML as string. Imports tags and attributes (favicon!)
-                    
-                ] 
-
+                    "html-loader", // Minimizes and exports HTML as string. Imports tags and attributes (favicon!) 
+                ]
 
             },
+            // {
+            //     test: /\.svg$/,
+            //     use: [
+            //         '@svgr/webpack'
+            //     ],
+            // },
             {
                 test: /\.svg$/,
-                use: [
-                    '@svgr/webpack'
-                ],
+                type: 'asset/resource',
+                use: 'svgo-loader'
             },
-        ]
-    },
+        ]},
+
     plugins: [
         new HtmlWebpackPlugin({
             publicPath: '/',

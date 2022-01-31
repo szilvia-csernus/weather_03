@@ -19,21 +19,22 @@ function DailyForecast({ daily }) {
     }
 
     return (
-        <>
-            <h3 className='subtitle'>7-day forecast</h3>
-            <div className="weather-forecast weather-forecast--vertical">
-                {dailyData.map(d => (
+        <tbody>
+            <tr>
+                <th colSpan="5" className='subtitle'>7-day forecast</th>
+            </tr>
+            {dailyData.map(d => (
+                <tr key={d.id}>
                     <DailyData 
-                        key={d.id}
                         day={d.day}
                         icon={d.icon} 
                         tempMin={d.tempMin} 
                         tempMax={d.tempMax} 
                         description={d.description}
                     />
-                ))}
-            </div>
-        </>
+                </tr>
+            ))}
+        </tbody>
     );
 }
 

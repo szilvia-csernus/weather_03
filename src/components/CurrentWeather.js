@@ -21,7 +21,7 @@ function CurrentWeather({ city, weather, time }) {
         const icon = weather.current.weather[0].icon;
 
         content = 
-        <div>
+            <div>
             <CityName cityName={cityName}/>
             <Temp temp={temp}/>
             <Icon icon={icon}/>
@@ -32,16 +32,14 @@ function CurrentWeather({ city, weather, time }) {
                 humidity={humidity}
             />
             <div className="refreshing">
-                <div className="sign">
-                    <RefreshIcon />
-                </div>
-                <div> in {time} minute(s)</div>
+                <span><img src={RefreshIcon} alt="refresh icon" width="20"/></span>
+                in {time} minute(s)
             </div>
             
         </div>;
 
     } else {
-        content = <div className='loading'>Loading weather...</div>;
+        content = <article className='loading'>Loading weather...</article>;
     }
 
     

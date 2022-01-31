@@ -16,12 +16,12 @@ function WeatherForecast({ weather }) {
         
         content =
         (<>
-            <div className="general-frame">
+            <table width="1060"className="general-frame">
                 <HourlyForecast hourly={hourly}/>
-            </div>
-            <div className="general-frame">
+            </table>
+            <table width="1060" className="general-frame">
                 <DailyForecast daily={daily}/>
-            </div>
+            </table>
         </>)
 
     }

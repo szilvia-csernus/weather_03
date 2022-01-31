@@ -4,6 +4,8 @@ import WeatherForecast from './WeatherForecast';
 import { weatherUrl } from '../apis/weatherUrl';
 import { cityUrl } from '../apis/cityUrl';
 import { apiCall } from '../apis/apiCall';
+import DailyForecast from './DailyForecast';
+import HourlyForecast from './HourlyForecast';
 
 
 function App() {
@@ -41,13 +43,13 @@ function App() {
 
     return (
         <React.StrictMode>
-            <div className="general-frame general-frame--invisible">
+            <section className="general-frame general-frame--invisible">
                 <CurrentWeather city={city} weather={weather} time={time} />
-                
-            </div>
-            <div>
+            </section>
+            <br/><br/>
+            <section>
                 <WeatherForecast weather={weather} />
-            </div>
+            </section>
         </React.StrictMode> 
     );
 };
