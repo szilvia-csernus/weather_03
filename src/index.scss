@@ -1,202 +1,130 @@
-// @import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
 
-// $primary-font-family:  'Open Sans', sans-serif;
-// $primary-font-colour: rgb(80, 80, 80);
+$primary-font-family:  'Open Sans', sans-serif;
+$primary-font-colour: rgb(80, 80, 80);
 
-// @mixin scrollbars(
-//   $size: 1.3rem,
-//   $foreground-color: #999,
-//   $background-color: transparent,
-// ) {
 
-//   // For Chrome & Safari
-//   &::-webkit-scrollbar {
-//     width: $size;
-//     height: $size;
+
+/* reset */
+
+html, body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    outline: 0;
+    font: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    color: inherit;
+    display: inherit;
+    box-sizing: inherit;
+    background: transparent;
+    vertical-align: inherit;
+    list-style: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* general styling */
+
+body {
+    font-family: $primary-font-family;
+    color: $primary-font-colour;
+    background-image: url("./assets/clouds.jpg");
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    min-width: 400px;
+}
+
+
+@mixin scrollbars(
+  $size: 1.3rem,
+  $foreground-color: #999,
+  $background-color: transparent,
+) {
+
+    /*  For Chrome & Safari */
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
     
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background: $foreground-color;
-//     border-radius: 1rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 1rem;
     
-//     // alongside with $size, this 2 makes the magic of scrollbar-padding
-//     border: .5rem solid transparent;
-//     background-clip: padding-box;
-//   }
-//   &::-webkit-scrollbar-track {
-//     background: $background-color;
-//     margin: .5rem;
-//   }
+    /* alongside with $size, these 2 makes the magic of scrollbar-padding */
+    border: .5rem solid transparent;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    margin: .5rem;
+  }
 
-//   // Standard version (Firefox only for now)
-//   scrollbar-color: $foreground-color $background-color;
-// }
-
-
-// /* reset */
-
-// html, body, h1, h2, h3, p, ul, li {
-//     margin: 0;
-//     border: 0;
-//     padding: 0;
-//     outline: 0;
-//     font: inherit;
-//     text-align: inherit;
-//     text-decoration: inherit;
-//     color: inherit;
-//     display: inherit;
-//     box-sizing: inherit;
-//     background: transparent;
-//     vertical-align: inherit;
-//     list-style: none;
-// }
+  /* Standard version (Firefox only for now) */
+  scrollbar-color: $foreground-color $background-color;
+}
 
 
-// /* general styling */
-
-// body {
-//     font-family: $primary-font-family;
-//     display: flex;
-//     justify-content: space-around;
-//     background-image: url("./assets/clouds.jpg");
-// }
-
-// #main {
-//     padding: 0.4rem;
-//     min-width: 400px;
-// }
-
-// .general-frame {
-
-//     flex-direction: column;
-//     justify-content: space-between;
-//     background: rgba(104, 151, 192, 0.2);
-//     font-size: 1em;
-//     color: $primary-font-colour;
-//     // border: 1px solid white;
-//     border-radius: 5px;
-//     box-shadow: 4px 4px 3px rgb(137, 157, 187);
-//     margin: 1em;
-//     padding: 1em;
-//     overflow: auto;
+.general-frame {
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(104, 151, 192, 0.2);
+    font-size: 1em;  
+    border-radius: 5px;
+    box-shadow: 4px 4px 3px rgb(137, 157, 187);
+    margin: 1em;
+    padding: 1em;
+    overflow: auto;
     
-//     @include scrollbars();
+    @include scrollbars();
     
-// }
+}
 
-// .general-frame--invisible {
-//     background: transparent;
-//     box-shadow: none;
-// }
+.invisible-frame {
+    justify-content: space-between;
+    flex-direction: column;
+    background: transparent;
+    box-shadow: none;
+}
 
-// .loading {
-//     display: flex;
-//     justify-content: center;
-//     font-size: 20px;
-//     padding: 30px;
-// }
-
-// .refreshing {
-//     display: flex;
-//     justify-content: center;
-//     color: white;
-//     font-size: .9rem;
-//     align-items: center;
-//     margin: 0.5rem;
-// }
-
-// .refreshing .sign {
-//     color: white;
-//     font-size: 1rem;
-//     display: block;
-//     height: 1rem;
-//     width: 1.2rem;
-//     padding: 0rem 0.5rem;
-// }
-
-// .weather {
+// .detailed-data {
     
 //     flex-direction: column;
 //     justify-content: center;
 // }
 
-// .city {
-//     display: flex;
-//     justify-content: center;
-//     font-size: 2rem;
-//     // margin: 1rem;
-// }
+.subtitle {
+    text-transform: uppercase;
+    font-size: .9rem;
+    padding: 0 0 .5rem 0;
+    border-bottom: 0.01rem solid $primary-font-colour;
+}
 
-// .temp {
-//     display: flex;
-//     justify-content: center;
-//     font-size: 3.5rem;
-//     // margin: 1rem;
-// }
 
-// .weather-description {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-around;
-//     font-size: .9rem;
-//     // margin: 1rem;
+.weather-forecast--vertical {
+    flex-direction: column;
+}
 
-//     p {
-//         justify-content: center;
-//         text-transform: capitalize;
-//         margin: .2rem;
-//     }
-// }
-
-// .subtitle {
-//     text-transform: uppercase;
-//     font-size: .9rem;
-//     padding: 0 0 .5rem 0;
-// }
-
-// .weather-forecast {
-//     display: flex;
-//     flex-direction: row;
-//     border-top: 0.01rem solid $primary-font-colour;
-// }
-
-// .weather-forecast--vertical {
-//     flex-direction: column;
-// }
-
-// .weather-forecast-data {
-//     display: flex;
-//     font-size: .9rem;
-//     flex-direction: column;
-//     align-items: center;
-//     padding: .5rem 1.2rem .5rem 0;
+.weather-forecast-data--horizontal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     
-//     .icon {
-//         font-size: 1rem;
-//         display: block;
-//         height: 1.7rem;
-//         width: 1.7rem;
-//         padding: .2rem .2rem;
-//     }
-
-// }
-
-// .weather-forecast-data--horizontal {
-//     flex-direction: row;
-//     justify-content: space-between;
-//     align-items: center;
-    
-//     p {
-//         display: block;
-//         width: 10rem;
-//     }
-// }
-
-// .main-icon {
-//     font-size: 1.5rem;
-//     display: block;
-//     margin: 0 auto;
-//     height: 5rem;
-//     width: 5rem;
-// }
+    p {
+        display: block;
+        width: 10rem;
+    }
+}
 

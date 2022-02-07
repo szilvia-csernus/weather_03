@@ -1,0 +1,16 @@
+.hourlyData {
+    display: flex;
+    font-size: .9rem;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid orange;
+}
+
+.icon {
+        font-size: 1rem;
+        display: block;
+        height: 1.7rem;
+        width: 1.7rem;
+        padding: .2rem .2rem;
+        border: 1px solid green;
+    }

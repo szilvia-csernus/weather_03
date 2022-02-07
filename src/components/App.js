@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import CurrentWeather from './CurrentWeather';
-import WeatherForecast from './WeatherForecast';
+import CurrentWeather from './molecules/CurrentWeather/CurrentWeather';
+import WeatherForecast from './organisms/WeatherForecast/WeatherForecast';
 import { weatherUrl } from '../apis/weatherUrl';
 import { cityUrl } from '../apis/cityUrl';
 import { apiCall } from '../apis/apiCall';
-import DailyForecast from './DailyForecast';
-import HourlyForecast from './HourlyForecast';
-
 
 function App() {
     const [time, setTime] = useState(5);
@@ -43,7 +40,7 @@ function App() {
 
     return (
         <React.StrictMode>
-            <section className="general-frame general-frame--invisible">
+            <section className="invisible-frame">
                 <CurrentWeather city={city} weather={weather} time={time} />
             </section>
             <br/><br/>

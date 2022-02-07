@@ -1,6 +1,7 @@
 import React from 'react';
-import HourlyData from './HourlyData';
-import SignPicker from './SignPicker';
+import HourlyData from '../../atoms/HourlyData/HourlyData';
+import SignPicker from '../../SignPicker';
+import styles from './HourlyForecast.module.scss';
 
 function HourlyForecast({hourly}) {
     const hourlyData = [];
@@ -17,12 +18,9 @@ function HourlyForecast({hourly}) {
 
     return (
         <tbody>
-        <tr>
-            <th colSpan="24" className='subtitle'>Hourly forecast</th>
-        </tr>
-        <tr className="weather-forecast">
+        <tr >
             {hourlyData.map(d => (
-                <td key={d.id} width="20" ><HourlyData hour={d.hour} icon={d.icon} temp={d.temp} /></td>
+                <td key={d.id} ><HourlyData hour={d.hour} icon={d.icon} temp={d.temp} /></td>
             ))}
         </tr>
         

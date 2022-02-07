@@ -1,6 +1,7 @@
 import React from 'react';
-import DailyData from './DailyData';
-import SignPicker from './SignPicker';
+import DailyData from '../../atoms/DailyData/DailyData';
+import SignPicker from '../../SignPicker';
+import styles from './DailyForecast.module.scss';
 
 function DailyForecast({ daily }) {
     const dailyData = [];
@@ -20,9 +21,6 @@ function DailyForecast({ daily }) {
 
     return (
         <tbody>
-            <tr>
-                <th colSpan="5" className='subtitle'>7-day forecast</th>
-            </tr>
             {dailyData.map(d => (
                 <tr key={d.id}>
                     <DailyData 

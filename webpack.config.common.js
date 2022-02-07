@@ -19,12 +19,34 @@ module.exports = {
                 },
             },
             {
-                test: /\.s[ca]ss$/,
+                test: /\.(css|scss)$/,
                 use: [
-                    "style-loader",// 3. Adds CSS to DOM by injecting <syle> tags
-                    "css-loader",  // 2. Translates CSS into CommonJS
-                    "sass-loader"  // 1. Compiles Sass to CSS
-                ]
+                    {
+                        loader: 'style-loader'
+                    },
+         
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: "[name]__[local]_[hash:base64:5]",
+                            },
+                        }
+                    }, 
+                    {
+                        loader: 'sass-loader'
+                    }
+                ],
+                include: [/\.module\.scss$/, /\.module\.css$/]
+            },
+            {
+                test: /\.(css|scss)$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ],
+                exclude: [/\.module\.scss$/, /\.module\.css$/]
             },
             {
                 test: /\.html$/,
