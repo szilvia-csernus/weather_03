@@ -44,3 +44,17 @@
     width: 1.2rem;
     padding-right: .5rem;
 }
+
+.weatherDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1rem;
+    
+}
+
+.rows {
+    justify-content: center;
+    text-transform: capitalize;
+    margin: .2rem;
+}

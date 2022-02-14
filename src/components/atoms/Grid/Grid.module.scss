@@ -1,0 +1,91 @@
+.current {
+  grid-area: current;
+}
+
+.hourly {
+  grid-area: hourly;
+}
+
+.daily {
+  grid-area: daily;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: 40vh 20vh 40vh;
+    grid-template-columns: 50vw 50vw;
+    grid-template-areas: 
+      "current current"
+      "hourly hourly"
+      "daily daily";
+    border: 1px solid red;
+}
+
+
+
+@media only screen and (orientation: landscape) {
+    .grid {
+        grid-template-areas: 
+            "current daily"
+            "current daily"
+            "hourly hourly";
+        border: 1px solid green;
+        }
+    
+}
+
+
+
+@mixin scrollbars(
+  $size: 1.3rem,
+  $foreground-color: #999,
+  $background-color: transparent,
+) {
+
+    /*  For Chrome & Safari */
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+    
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 1rem;
+    
+    /* alongside with $size, these 2 makes the magic of scrollbar-padding */
+    border: .5rem solid transparent;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    margin: .5rem;
+  }
+
+  /* Standard version (Firefox only for now) */
+  scrollbar-color: $foreground-color $background-color;
+}
+
+
+.generalFrame {
+    flex-direction: column;
+    justify-content: space-around;
+    background: rgba(104, 151, 192, 0.2);
+    font-size: 1rem;  
+    border-radius: 5px;
+    box-shadow: 4px 4px 3px rgb(137, 157, 187);
+    margin: 1rem;
+    padding: 1rem;
+    overflow: auto;
+    
+    @include scrollbars();
+    
+}
+
+.invisibleFrame {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    box-shadow: none;
+}
