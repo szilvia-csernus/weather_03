@@ -17,8 +17,8 @@ export const weatherUrl = (location) => {
 
     url += toQueryString(params);
     url += '&units=metric&exclude=minutely,alerts';
-    const apiKey = '27a5bef1f3907b34a236c9a8161181df';
-    url += `&APPID=${apiKey}&lang=en`;
+    const API_KEY = '27a5bef1f3907b34a236c9a8161181df';
+    url += `&APPID=${process.env.WEATHER_API_KEY}&lang=en`;
 
 
     return url;
