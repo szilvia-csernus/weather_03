@@ -5,7 +5,7 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     // context: path.resolve(__dirname, ''),
-    entry: "./src/index.jsx",
+    entry: ["regenerator-runtime/runtime.js", "./src/index.jsx"],
 
     module: {
         rules: [

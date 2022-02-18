@@ -1,40 +1,53 @@
 .current {
-  grid-area: current;
+  // grid-area: current;
+  display: flex;
+  width: 360px;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hourly {
-  grid-area: hourly;
+  // grid-area: hourly;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  display: block;
+  width: 412px;
+  background: rgba(104, 151, 192, 0.2);
 }
 
 .daily {
-  grid-area: daily;
+  // grid-area: daily;
+  display: flex;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mainDetails {
+  grid-area: mainDetails;
+}
+
+.smallDetails {
+  grid-area: smallDetails;
+}
+
+.gridStart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
     display: grid;
-    grid-template-rows: 40vh 20vh 40vh;
-    grid-template-columns: 50vw 50vw;
-    grid-template-areas: 
-      "current current"
-      "hourly hourly"
-      "daily daily";
-    border: 1px solid red;
-}
-
-
-
-@media only screen and (orientation: landscape) {
-    .grid {
-        grid-template-areas: 
-            "current daily"
-            "current daily"
-            "hourly hourly";
-        border: 1px solid green;
-        }
+    grid-template-rows: 20vh 50vh 25vh;
     
+    // grid-template-columns: 40vw 60vw;
+    // grid-template-areas:
+    //   "mainDetails smallDetails" 
+    //   "current hourly"
+    //   "daily daily";
 }
-
-
 
 @mixin scrollbars(
   $size: 1.3rem,
@@ -65,27 +78,31 @@
   scrollbar-color: $foreground-color $background-color;
 }
 
+.topFrame {
+  display: block;
+  justify-content: space-between;
+}
 
-.generalFrame {
-    flex-direction: column;
-    justify-content: space-around;
-    background: rgba(104, 151, 192, 0.2);
-    font-size: 1rem;  
-    border-radius: 5px;
-    box-shadow: 4px 4px 3px rgb(137, 157, 187);
-    margin: 1rem;
-    padding: 1rem;
+.middleFrame {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bottomFrame {
+  display: block;
+  justify-content: flex-startblock
+}
+
+.scrollableFrame {
     overflow: auto;
-    
     @include scrollbars();
-    
 }
 
-.invisibleFrame {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    background: transparent;
-    box-shadow: none;
+@media screen and (min-width: 415px) {
+  .current{
+    display: block;
+    width: 414px;
+  }
 }
+
+

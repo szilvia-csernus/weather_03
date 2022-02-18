@@ -1,5 +1,6 @@
 import React from 'react';
 import SignPicker from '../../SignPicker';
+import { Table } from '../../atoms/Table/Table';
 import styles from './DailyForecast.module.scss';
 
 export function DailyForecast({ daily }) {
@@ -19,25 +20,18 @@ export function DailyForecast({ daily }) {
     }
 
     return (
-        <>
-            <table>
-                <thead>
-                    <tr>
-                        <td colSpan={5}><h2 className='subtitle'>Daily forecast</h2></td>
+        <Table tableWidth={5} tableTitle={'Daily forecast'} tableBody={
+                dailyData.map(d => (
+                    <tr key={d.id}>
+                        <td>{d.day}</td>
+                        <td className={styles.icon}>{d.icon}</td>
+                        <td>{d.description}</td>
+                        <td>Low: {d.tempMin}&#176;</td>
+                        <td>High: {d.tempMax}&#176;</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {dailyData.map(d => (
-                        <tr key={d.id}>
-                            <td>{d.day}</td>
-                            <td className={styles.icon}>{d.icon}</td>
-                            <td>{d.description}</td>
-                            <td>Low: {d.tempMin}&#176;</td>
-                            <td>High: {d.tempMax}&#176;</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </>
+                ))
+            }>
+            
+        </Table>
     );
 }

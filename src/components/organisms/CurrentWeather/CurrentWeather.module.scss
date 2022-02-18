@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     font-size: 2rem;
-    
+    line-height: 1rem;
 }
 
 .temp {
@@ -38,10 +38,10 @@
 
 .sign {
     display: block;
-    font-size: 1rem;
+    font-size: 1.5rem;
     display: block;
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.5rem;
+    width: 1.5rem;
     padding-right: .5rem;
 }
 
@@ -56,5 +56,5 @@
 .rows {
     justify-content: center;
     text-transform: capitalize;
-    margin: .2rem;
+    margin: .1rem;
 }

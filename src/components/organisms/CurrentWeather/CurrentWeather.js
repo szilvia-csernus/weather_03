@@ -18,8 +18,8 @@ export function CurrentWeather({ city, weather, time }) {
 
     return (
         <>
-            <h1 className={styles.city}>{cityName}</h1>
-            <NormalButton text="Change City"/>
+            <h1 className={styles.city}>{cityName} </h1>
+            <SmallButton text="Change City" />
             <div className={styles.temp}>{temp}&#176;</div>
             <div className={styles.mainIcon}>{iconSign}</div>
             <div className={styles.weatherDescription}>

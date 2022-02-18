@@ -1,5 +1,6 @@
 import React from 'react';
 import SignPicker from '../../SignPicker';
+import { Table } from '../../atoms/Table/Table';
 import styles from './HourlyForecast.module.scss';
 
 export function HourlyForecast({hourly}) {
@@ -16,14 +17,7 @@ export function HourlyForecast({hourly}) {
     }
 
     return (
-        <>
-        <table>
-            <thead>
-                <tr>
-                    <td colSpan="24"><h2 className='subtitle'>Hourly forecast</h2></td>
-                </tr>
-            </thead>
-            <tbody>
+        <Table tableWidth={24} tableTitle={'Hourly forecast'} tableBody={
                 <tr >
                     {hourlyData.map(d => (
                         <td key={d.id} >
@@ -35,9 +29,7 @@ export function HourlyForecast({hourly}) {
                         </td>
                     ))}
                 </tr>
-            
-            </tbody>
-        </table>
-        </>
+        }>
+        </Table> 
     );
 }
