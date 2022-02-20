@@ -1,15 +1,32 @@
 import React from "react";
+import styles from './Table.module.scss';
 
-export function Table({tableWidth, tableTitle, tableBody}) {
+
+export function Table({headRow, rowsOfData, uniqueStyles}) {
+
     return (
-        <table>
+        <table className={styles.table + " " + uniqueStyles}>
             <thead>
-                <tr>
-                    <td colSpan={tableWidth}><h2 className="subtitle">{tableTitle}</h2></td>
+                <tr key={0}>
+                    {headRow.map((data, key) => {
+                        return (
+                            <td key={key}>{data}</td>
+                        )
+                    })}
                 </tr>
             </thead>
             <tbody>
-                {tableBody}
+                {rowsOfData.map((row, key) => {
+                    return (
+                        <tr key={key}>
+                            {row.map((data, key) => {
+                                return (
+                                    <td key={key}>{data}</td>
+                                )
+                            })}
+                        </tr>
+                    )
+                })}
             </tbody>
         </table>
     )

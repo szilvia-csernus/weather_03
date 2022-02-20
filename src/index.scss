@@ -1,18 +1,21 @@
 @import '~@csstools/normalize.css';
-@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap);
+@import "./shared.scss";
 
-$primary-font-family:  'Open Sans', sans-serif;
-$primary-font-colour: rgb(80, 80, 80);
+/* reset */
 
+ul {
+    list-style-type: none;
+}
 
 body {
     font-family: $primary-font-family;
     color: $primary-font-colour;
     background-image: url("./assets/clouds.jpg");
     // background-repeat: no-repeat;
-    position: relative;
+    // position: relative;
     // animation: moveClouds 80s infinite linear alternate;
 }
+
 
 
 // @keyframes moveClouds {
@@ -33,36 +36,3 @@ body {
 }
 
 
-.subtitle {
-    text-transform: uppercase;
-    font-size: .9rem;
-    padding: 0 0 .5rem 0;
-    border-bottom: 0.01rem solid $primary-font-colour;
-}
-
-
-.weather-forecast-data--horizontal {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    
-    p {
-        display: block;
-        width: 10rem;
-    }
-}
-
-.loader {
-  border: 8px solid rgba(104, 151, 192, 0.2);
-  border-top: 8px solid #5480c2; /* Blue */
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 2s linear infinite;
-  
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}

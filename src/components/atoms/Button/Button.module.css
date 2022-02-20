@@ -1,7 +1,22 @@
+.button {
+    border-radius: .1em
+}
+
 .small {
     font-size: 0.7em;
 }
 
 .normal {
     font-size: 1.2em
+}
+
+.refreshSign {
+    display: block;
+    /* font-size: .8rem; */
+    height: 2rem;
+    width: 2rem;
+    
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }

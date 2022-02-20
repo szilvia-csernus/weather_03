@@ -1,0 +1,10 @@
+.humidity {
+    &:before {
+        content: url('../../../assets/waterdrops.svg');
+        position: relative;
+        top: .5rem;
+    }
+    &:after {
+        content: "%";
+    }
+}

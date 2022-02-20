@@ -1,0 +1,12 @@
+@import './shared.scss';
+
+.city {
+    font: $primary-font-family;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: min;
+    line-height: 1rem;
+}
+
+

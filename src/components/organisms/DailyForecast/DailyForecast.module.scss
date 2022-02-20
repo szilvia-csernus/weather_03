@@ -1,7 +1,11 @@
-.icon {
+.frameDaily {
+  background: rgba(76, 111, 141, 0.2);
+}
+
+.table {
+    td {
         font-size: .9rem;
-        display: block;
-        height: 1.7rem;
-        width: 1.7rem;
-        padding: .2rem .2rem;
+        padding: .2rem;
+        min-width: 1.3rem;
     }
+}

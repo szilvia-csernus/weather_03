@@ -1,0 +1,59 @@
+.grid {
+    display: grid;
+    grid-template-rows: 20vh 45vh 30vh;
+    padding: .7rem;
+}
+
+@mixin scrollbars(
+  $size: 1.3rem,
+  $foreground-color: #999,
+  $background-color: transparent,
+) {
+    /*  For Chrome & Safari */
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;  
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    border-radius: 1rem;
+
+    /* alongside with $size, these 2 makes the magic of scrollbar-padding */
+    border: .5rem solid transparent;
+    background-clip: padding-box;
+  }
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+    margin: .5rem;
+  }
+  /* Standard version (Firefox only for now) */
+  scrollbar-color: $foreground-color $background-color;
+}
+
+.scrollableFrame {
+    overflow: auto;
+    @include scrollbars();
+}
+
+.gridTop {
+  display: flex;
+  width: 100%;
+  flex: 1 0 auto;
+  justify-content: space-between;
+}
+
+.gridMiddle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.gridBottom {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
+
+
+

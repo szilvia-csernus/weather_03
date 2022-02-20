@@ -1,0 +1,16 @@
+@import "./shared.scss";
+
+.warning {
+    font-size: .8rem;
+    color: white;
+    background-color: $primary-font-colour;
+    border: none;
+    align-content: center;
+    padding: 0 .3rem .3rem;
+    &:before {
+        content: url('../../../assets/warningsign.svg');
+        padding-right: .3rem;
+        position: relative;
+        top: .2rem;
+    }
+}

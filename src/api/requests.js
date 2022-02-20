@@ -7,7 +7,7 @@ export const getWeather = (location, success ) => {
         lat: location.coords.latitude,
         lon: location.coords.longitude,
         units: "metric",
-        exclude: "minutely,alerts",
+        exclude: "minutely",
         APPID: process.env.WEATHER_API_KEY,
         lang: "en"
     };

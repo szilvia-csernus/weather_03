@@ -1,60 +1,74 @@
-.city {
+.frameCurrent {
+  width: 390px;
+  flex: 1 0 auto;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem .5rem 2rem 0;
+}
+
+@media screen and (min-width: 415px) {
+  .frameCurrent{
+    display: block;
+    width: 414px;
+  }
+}
+
+.iconPlusTempContainer {
     display: flex;
-    justify-content: center;
-    font-size: 2rem;
-    line-height: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    height: 10rem;
+    flex: 1 0 auto;
+}
+
+.tempRow {
+    justify-self: right;
+    align-content: flex-start;
+    font-size: 3.7rem;
+    line-height: 10rem;
 }
 
 .temp {
-    display: flex;
-    justify-content: center;
-    font-size: 3.5rem;
-    
+    &:after {
+        font-size: 2.5rem;
+        position: relative;
+        top: -1rem;
+    }
+}
+
+.humidity {
+    &:before {
+        position: relative;
+        top: .5rem;
+    }
 }
 
 .mainIcon {
-    font-size: 1.5rem;
-    display: block;
-    margin: 0 auto;
-    height: 5rem;
-    width: 5rem;
+    height: 7rem;
+    width: 7rem;
 }
 
-.loading {
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem;
-    padding: 1rem;
-}
-
-.refreshing {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: .9rem;
-    align-items: center;
-    padding: .5rem;
-}
-
-.sign {
-    display: block;
-    font-size: 1.5rem;
-    display: block;
-    height: 1.5rem;
-    width: 1.5rem;
-    padding-right: .5rem;
-}
 
 .weatherDescription {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 1rem;
+    font-size: .9rem;
     
 }
 
 .rows {
-    justify-content: center;
+    font-size: 1rem;
+    justify-content: flex-start;
     text-transform: capitalize;
     margin: .1rem;
+}
+
+.description {
+    font-size: 1.5rem;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
 }

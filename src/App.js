@@ -3,21 +3,20 @@ import React, { useState, useEffect } from 'react';
 import { CurrentWeather } from './components/organisms/CurrentWeather/CurrentWeather';
 import { HourlyForecast } from './components/organisms/HourlyForecast/HourlyForecast';
 import { DailyForecast } from './components/organisms/DailyForecast/DailyForecast';
-import { getCity, getWeather } from './api/requests';
+import { getWeather } from './api/requests';
+import { RefreshTime } from './components/molecules/RefreshTime/RefreshTime';
+import { CityName } from './components/molecules/CityName/CityName';
+import { Warning } from './components/molecules/Warning/Warning';
+import { Loader } from './components/molecules/Loader/Loader';
 
-import { Grid, GStart, GTop, GMiddle, GBottom, GCurrent, GHourly, GDaily, GMainDetails, GSmallDetails } from './components/atoms/Grid/Grid';
+import { Grid, GridTop, GridMiddle, GridBottom} from './components/atoms/Layout/Grid';
+import { FrameStart } from './components/atoms/Layout/Frames';
 
 export function App() {
-    const [time, setTime] = useState(5);
-    const [timeToRefresh, triggerTimeToRefresh] = useState(false);
+    
+    const [timeToRefresh, setTimeToRefresh] = useState(false);
     const [weather, setWeather] = useState(null);
-    const [city, setCity] = useState(null);
-    // const [location, setLocation] = useState(null);
-
-    useEffect(() => {
-        const interval = window.setInterval(count, 60000);
-        return () => window.clearInterval(interval)
-    }, [time]);
+    
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(loadWeather);
@@ -27,53 +26,41 @@ export function App() {
     //     navigator.geolocation.getCurrentPosition(setLocation)
     // }, [setLocation]);
 
-
-    const count = () => {
-        if (time <= 1) {
-            triggerTimeToRefresh(currentTimeToRefresh => !currentTimeToRefresh)
-            setTime(5);
-        }
-        else {
-            setTime(newTime => newTime - 1);
-        }
-    }
-
     const loadWeather = (location) => {
-
-        getCity(location, setCity);
         getWeather(location, setWeather);
     }
 
     let content = <div></div>;
 
-    if (city && weather) {
+    if (weather) {
         content = 
             <Grid>
-                <GTop>
-                    <GMainDetails>Main details</GMainDetails>
-                    <GSmallDetails>Small details</GSmallDetails>
-                </GTop>
-                <GMiddle>
-                    <GCurrent>
-                        <CurrentWeather city={city} weather={weather} time={time} />
-                    </GCurrent>
-                    <GHourly >
+                <GridTop>
+                    <div>
+                        <RefreshTime 
+                            timeToRefresh={timeToRefresh}
+                            setTimeToRefresh={setTimeToRefresh}
+                        />
+                        <CityName timeToRefresh={timeToRefresh} />
+                    </div>
+                    <div>
+                        <Warning alerts={weather.alerts} setWeather={setWeather}/>
+                    </div>
+                </GridTop>
+                <GridMiddle>
+                        <CurrentWeather weather={weather} />
                         <HourlyForecast hourly={weather.hourly} />
-                    </GHourly>
-                </GMiddle>
-                <GBottom>
-                    <GDaily >
+                </GridMiddle>
+                <GridBottom>
                         <DailyForecast daily={weather.daily} />
-                    </GDaily>
-                </GBottom>
-                
+                </GridBottom>               
             </Grid>
     }
     else {
         content = 
-            <GStart>
-                <div className="loader"></div>
-            </GStart>
+            <FrameStart>
+                <Loader/>
+            </FrameStart>
     }
 
     return (

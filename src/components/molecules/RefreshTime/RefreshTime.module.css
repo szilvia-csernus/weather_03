@@ -1,0 +1,9 @@
+.refreshing {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: white;
+    font-size: .9rem;
+    line-height: 2rem;
+}
+
