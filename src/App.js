@@ -16,6 +16,7 @@ export function App() {
     
     const [timeToRefresh, setTimeToRefresh] = useState(false);
     const [weather, setWeather] = useState(null);
+    // const [location, setLocation] = useState(null)
     
 
     useEffect(() => {

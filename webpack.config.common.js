@@ -4,9 +4,9 @@ const Dotenv = require('dotenv-webpack');
 
 
 module.exports = {
-    // context: path.resolve(__dirname, ''),
-    entry: ["regenerator-runtime/runtime.js", "./src/index.jsx"],
-
+    
+    entry: "./src/index.jsx",
+    
     module: {
         rules: [
             {
@@ -15,9 +15,10 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/env', '@babel/react']
+                        presets: ['@babel/preset-env', '@babel/preset-react'],
+                        plugins: ['@babel/plugin-transform-runtime']
                     }
-                },
+                }
             },
             {
                 test: /\.(css|scss)$/,
