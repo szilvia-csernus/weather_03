@@ -5,6 +5,7 @@ const { merge } = require("webpack-merge");
 module.exports = merge(common, {
     mode: "development",
     devServer: {
+        server: 'https',
         port: 9000,
     },
 });

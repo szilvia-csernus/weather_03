@@ -2,7 +2,7 @@ import { getRequest } from "./utils/getRequest";
 
 export const getWeather = (location, success ) => {
     
-    const url = 'http://api.openweathermap.org/data/2.5/onecall?'
+    const url = 'https://api.openweathermap.org/data/2.5/onecall?'
     const params = {
         lat: location.coords.latitude,
         lon: location.coords.longitude,
