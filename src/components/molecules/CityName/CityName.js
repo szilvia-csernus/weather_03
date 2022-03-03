@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { getCity } from '../../../api/requests';
-import { SmallButton } from '../../atoms/Button/Button';
+import { Button } from '../../atoms/Button/Button';
 import styles from './CityName.module.scss';
 
 export function CityName({timeToRefresh}) {
@@ -22,7 +22,7 @@ export function CityName({timeToRefresh}) {
         content = 
         <>
             <h1 className={styles.city}>{cityName} </h1>
-            <SmallButton text="Change City" />
+            <Button content="Change City" />
         </>
     }
     return (

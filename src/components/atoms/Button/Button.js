@@ -13,10 +13,3 @@ export function Button({content, onClick, uniqueStyles}) {
     return <button className={styles.button + " " + uniqueStyles} onClick={onClick}>{content}</button>
 }
 
-export function SmallButton({text}) {
-    return <button className={styles.small}>{text} </button>
-}
-
-export function NormalButton({text}) {
-    return <button className={styles.normal}>{text}</button>
-}
